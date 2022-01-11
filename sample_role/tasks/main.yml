@@ -1,0 +1,8 @@
+---
+# tasks file for sample_role
+
+- name: Top 5 CPU consuming processes
+  shell: ps aux | sort -nrk 3,3 | head -n 5
+  register: top
+- debug: var=top.stdout_lines
+

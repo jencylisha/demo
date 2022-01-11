@@ -1,12 +1,7 @@
 ---
 # tasks file for shell_cpu
-- name: Top 5 CPU consuming processes
+- name: Displaying top 5 CPU consuming processes
   shell: ps aux | sort -nrk 3,3 | head -n 5
   register: top
 - debug: var=top.stdout_lines
-
-- name: Get Disk partitioning
-  shell: df -hT
-  register: df
-- debug: var=df.stdout_lines
 
